@@ -1,3 +1,43 @@
+/* === THEME SYSTEM (LIGHT / DARK) ======================= */
+
+/* Dark por defecto */
+:root {
+  --bg-main: #0a0a0a;
+  --bg-alt: #050509;
+  --card-bg: rgba(15, 23, 42, 0.85);
+  --card-border: rgba(148, 163, 184, 0.25);
+  --text-main: #e5e5e5;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.18);
+}
+
+/* Tema claro */
+:root[data-theme='light'] {
+  --bg-main: #f9fafb;
+  --bg-alt: #ffffff;
+  --card-bg: #ffffff;
+  --card-border: rgba(15, 23, 42, 0.08);
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+}
+
+/* Tema oscuro explícito */
+:root[data-theme='dark'] {
+  --bg-main: #0a0a0a;
+  --bg-alt: #050509;
+  --card-bg: rgba(15, 23, 42, 0.85);
+  --card-border: rgba(148, 163, 184, 0.25);
+  --text-main: #e5e5e5;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.18);
+}
+
+/* ================== RESET & BASE ======================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,15 +45,22 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: #0a0a0a;
-  color: #e5e5e5;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
 .app {
   min-height: 100vh;
+  background: radial-gradient(
+      circle at top,
+      rgba(59, 130, 246, 0.06),
+      transparent 55%
+    ),
+    var(--bg-main);
 }
 
 .container {
@@ -22,12 +69,14 @@ body {
   padding: 0 24px;
 }
 
+/* ================== NAVBAR ======================= */
+
 .navbar {
   padding: 24px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
   position: sticky;
   top: 0;
-  background: rgba(10, 10, 10, 0.9);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   z-index: 100;
 }
@@ -61,7 +110,6 @@ body {
   flex-direction: column;
 }
 
-
 .logo {
   font-size: 24px;
   font-weight: 700;
@@ -74,8 +122,15 @@ body {
 
 .logo-subtitle {
   font-size: 12px;
-  color: #9ca3af;
+  color: var(--text-muted);
   font-weight: 400;
+}
+
+/* grupo links + toggles (navbar derecha) */
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .nav-links {
@@ -84,10 +139,16 @@ body {
   align-items: center;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .nav-link {
   background: none;
   border: none;
-  color: #9ca3af;
+  color: var(--text-muted);
   font-size: 15px;
   cursor: pointer;
   transition: color 0.2s;
@@ -96,8 +157,58 @@ body {
 }
 
 .nav-link:hover {
-  color: #e5e5e5;
+  color: var(--text-main);
 }
+
+/* pill de idioma ES/EN */
+.toggle-pill {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.25);
+}
+
+.toggle-pill button {
+  border: none;
+  background: transparent;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.toggle-pill button.is-active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* botón de tema ☾ / ☀︎ */
+.theme-toggle-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease,
+    border-color 0.15s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(148, 163, 184, 0.18);
+  transform: translateY(-1px);
+}
+
+/* ================== HERO ======================= */
 
 .hero {
   padding: 80px 0 120px;
@@ -124,7 +235,7 @@ body {
 
 .hero-description {
   font-size: 18px;
-  color: #9ca3af;
+  color: var(--text-muted);
   margin-bottom: 32px;
   line-height: 1.7;
 }
@@ -132,6 +243,7 @@ body {
 .hero-cta {
   margin-bottom: 16px;
 }
+
 
 .btn-primary {
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);

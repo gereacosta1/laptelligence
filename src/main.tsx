@@ -1,10 +1,14 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+// src/main.tsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
+import { AppSettingsProvider } from './context/AppSettingsContext';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <React.StrictMode>
+    <AppSettingsProvider>
+      <App />
+    </AppSettingsProvider>
+  </React.StrictMode>
 );
