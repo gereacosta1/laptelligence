@@ -47,3 +47,6 @@ Write-Host "Listo. Se generó el archivo:" -ForegroundColor Green
 Write-Host $path -ForegroundColor Yellow
 Write-Host ""
 Write-Host "Este archivo NO contiene tus documentos, solo métricas de rendimiento." -ForegroundColor DarkGray
+Write-Host ""
+Read-Host "Presioná Enter para cerrar esta ventana"
+

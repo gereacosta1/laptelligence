@@ -32,6 +32,12 @@ function HowItWorks() {
             >
               Descargar asistente para Windows
             </a>
+            <p className="step-helper">
+            Después de descargarlo, buscá el archivo <code>laptelligence_scan.ps1</code> en tu carpeta de Descargas,
+            hacé clic derecho y elegí <strong>“Ejecutar con PowerShell”</strong>. El asistente sólo lee métricas de rendimiento
+            y genera un archivo <code>laptelligence_scan.json</code> en tu Escritorio.
+          </p>
+
           </div>
 
           <div className="step-card">
