@@ -1,3 +1,4 @@
+// src/components/ReportFeatures.tsx
 function ReportFeatures() {
   return (
     <section id="report-features" className="section section-alt">

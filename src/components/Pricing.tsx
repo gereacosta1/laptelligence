@@ -1,6 +1,10 @@
+// src/components/Pricing.tsx
 function Pricing() {
   const handleBuyClick = () => {
-    alert("Más adelante va Stripe Checkout");
+    const el = document.getElementById("scan-upload");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -26,12 +30,14 @@ function Pricing() {
               Comprar ahora
             </button>
           </div>
+
           <div className="pricing-card pricing-card-soon">
             <div className="soon-badge">Próximamente</div>
             <h3 className="pricing-name">Optimización manual 1 a 1</h3>
             <div className="pricing-price">TBD</div>
             <p className="pricing-description">
-              Sesión remota personalizada con ajustes avanzados, con foco en gaming si lo necesitás.
+              Sesión remota personalizada con ajustes avanzados, con foco en gaming si lo
+              necesitás.
             </p>
             <ul className="pricing-features">
               <li>Sesión remota de 60 minutos</li>
@@ -42,12 +48,14 @@ function Pricing() {
               Próximamente
             </button>
           </div>
+
           <div className="pricing-card pricing-card-soon">
             <div className="soon-badge">Próximamente</div>
             <h3 className="pricing-name">Auto-Fix automático</h3>
             <div className="pricing-price">TBD</div>
             <p className="pricing-description">
-              Versión futura que aplica cambios y optimizaciones automáticamente en tu sistema.
+              Versión futura que aplica cambios y optimizaciones automáticamente en tu
+              sistema.
             </p>
             <ul className="pricing-features">
               <li>Aplicación automática de mejoras</li>
