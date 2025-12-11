@@ -723,3 +723,160 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
+
+
+
+.scan-upload-card {
+  margin-top: 24px;
+  padding: 24px 24px 28px;
+  border-radius: 16px;
+  background: radial-gradient(circle at top left, #020617, #020617f2);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.75);
+}
+
+.scan-upload-label {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #e5e7eb;
+}
+
+.scan-upload-input {
+  margin-top: 4px;
+  padding: 10px 14px;
+  max-width: 320px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+  color: #f9fafb;
+  font-size: 13px;
+}
+
+.scan-upload-input::file-selector-button {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  color: #020617;
+  font-weight: 500;
+  padding: 8px 14px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.scan-file-name {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.scan-file-name span {
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+.scan-status {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.scan-error {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #fca5a5;
+}
+
+.scan-report {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.scan-report-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #f9fafb;
+}
+
+.scan-report-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.scan-pill {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 180px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top left, #1d283a, #020617);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+}
+
+.scan-pill-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+}
+
+.scan-pill-value {
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.scan-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .scan-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scan-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 8px;
+}
+
+.scan-list {
+  list-style: disc;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #d1d5db;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.scan-raw {
+  margin-top: 18px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.scan-raw summary {
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.scan-raw pre {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #020617;
+  max-height: 260px;
+  overflow: auto;
+  color: #e5e7eb;
+}
