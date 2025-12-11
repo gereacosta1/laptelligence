@@ -5,7 +5,7 @@ import ReportFeatures from './components/ReportFeatures';
 import Pricing from './components/Pricing';
 import ExpectationDisclaimer from './components/ExpectationDisclaimer';
 import Footer from './components/Footer';
-import { ScanUploadSection } from "./components/ScanUploadSection";
+
 import ScanUpload from "./components/ScanUpload";
 
 
@@ -18,7 +18,6 @@ function App() {
       <Hero />
       <HowItWorks />
        <ScanUpload />
-      <ScanUploadSection />
       <ReportFeatures />
       <Pricing />
       <ExpectationDisclaimer />
