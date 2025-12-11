@@ -69,6 +69,36 @@ body {
   padding: 0 24px;
 }
 
+/* ================== SECTIONS GENERALES ======================= */
+
+.section {
+  padding: 80px 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+.section-alt {
+  padding: 80px 0;
+  background: var(--bg-alt);
+  color: var(--text-main);
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+
 /* ================== NAVBAR ======================= */
 
 .navbar {
@@ -79,6 +109,15 @@ body {
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   z-index: 100;
+}
+
+:root[data-theme='light'] .navbar {
+  background: rgba(249, 250, 251, 0.95);
+  border-bottom: 1px solid rgba(209, 213, 219, 0.9);
+}
+
+:root[data-theme='dark'] .navbar {
+  background: rgba(0, 0, 0, 0.75);
 }
 
 .navbar-content {
@@ -230,7 +269,7 @@ body {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 24px;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .hero-description {
@@ -244,10 +283,9 @@ body {
   margin-bottom: 16px;
 }
 
-
 .btn-primary {
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 16px 32px;
   font-size: 16px;
@@ -269,14 +307,14 @@ body {
 .price-text {
   margin-top: 12px;
   font-size: 14px;
-  color: #d1d5db;
+  color: var(--text-muted);
   text-align: center;
   max-width: 380px;
 }
 
 .hero-note {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-muted);
   font-style: italic;
 }
 
@@ -285,9 +323,11 @@ body {
   justify-content: center;
 }
 
+/* Tarjeta de ejemplo dashboard */
+
 .dashboard-card {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 32px;
   width: 100%;
@@ -299,7 +339,7 @@ body {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 24px;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .dashboard-metrics {
@@ -313,7 +353,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 .metric:last-child {
@@ -323,13 +363,13 @@ body {
 
 .metric-label {
   font-size: 14px;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 .metric-value {
   font-size: 15px;
   font-weight: 600;
-  color: #e5e5e5;
+  color: var(--text-main);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -346,39 +386,15 @@ body {
 
 .status-high {
   background: rgba(239, 68, 68, 0.2);
-  color: #f87171;
+  color: #ef4444;
 }
 
 .status-warning {
   background: rgba(251, 191, 36, 0.2);
-  color: #fbbf24;
+  color: #ea580c;
 }
 
-.section {
-  padding: 100px 0;
-}
-
-.section-alt {
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.section-title {
-  font-size: 42px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 16px;
-  color: #ffffff;
-}
-
-.section-subtitle {
-  font-size: 18px;
-  color: #9ca3af;
-  text-align: center;
-  margin-bottom: 60px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* ================== HOW IT WORKS / FEATURES ======================= */
 
 .steps-grid {
   display: grid;
@@ -387,8 +403,8 @@ body {
 }
 
 .step-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 32px;
   transition: transform 0.2s, border-color 0.2s;
@@ -396,7 +412,7 @@ body {
 
 .step-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(59, 130, 246, 0.4);
+  border-color: rgba(59, 130, 246, 0.6);
 }
 
 .step-number {
@@ -410,19 +426,19 @@ body {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 20px;
-  color: white;
+  color: #ffffff;
 }
 
 .step-title {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 12px;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .step-description {
   font-size: 15px;
-  color: #9ca3af;
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
@@ -436,9 +452,9 @@ body {
   border: 1px solid rgba(59, 130, 246, 0.8);
   font-size: 14px;
   font-weight: 500;
-  color: #e5ecff;
+  color: var(--text-main);
   text-decoration: none;
-  background: rgba(15, 23, 42, 0.8);
+  background: var(--bg-main);
   backdrop-filter: blur(8px);
   transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease,
     box-shadow 0.15s ease;
@@ -451,18 +467,19 @@ body {
   box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
 }
 
-
 .step-helper {
   margin-top: 10px;
   font-size: 13px;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
+
 .step-helper code {
-  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', monospace;
   font-size: 12px;
 }
 
+/* Features / Report */
 
 .features-grid {
   display: grid;
@@ -471,8 +488,8 @@ body {
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 32px;
   transition: transform 0.2s, border-color 0.2s;
@@ -480,21 +497,23 @@ body {
 
 .feature-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(59, 130, 246, 0.4);
+  border-color: rgba(59, 130, 246, 0.6);
 }
 
 .feature-title {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 12px;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .feature-description {
   font-size: 15px;
-  color: #9ca3af;
+  color: var(--text-muted);
   line-height: 1.6;
 }
+
+/* ================== PRICING ======================= */
 
 .pricing-grid {
   display: grid;
@@ -503,8 +522,8 @@ body {
 }
 
 .pricing-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 40px;
   display: flex;
@@ -513,12 +532,12 @@ body {
 }
 
 .pricing-card-main {
-  border-color: rgba(59, 130, 246, 0.4);
-  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.6);
 }
 
 .pricing-card-soon {
-  opacity: 0.6;
+  opacity: 0.7;
+  background: color-mix(in srgb, var(--card-bg) 80%, var(--bg-main));
 }
 
 .soon-badge {
@@ -526,7 +545,7 @@ body {
   top: 20px;
   right: 20px;
   background: rgba(251, 191, 36, 0.2);
-  color: #fbbf24;
+  color: #ea580c;
   padding: 4px 12px;
   border-radius: 6px;
   font-size: 12px;
@@ -538,7 +557,7 @@ body {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 12px;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .pricing-price {
@@ -553,7 +572,7 @@ body {
 
 .pricing-description {
   font-size: 15px;
-  color: #9ca3af;
+  color: var(--text-muted);
   margin-bottom: 24px;
   line-height: 1.6;
 }
@@ -566,14 +585,14 @@ body {
 
 .pricing-features li {
   font-size: 15px;
-  color: #d1d5db;
+  color: var(--text-main);
   margin-bottom: 12px;
   padding-left: 24px;
   position: relative;
 }
 
 .pricing-features li::before {
-  content: "✓";
+  content: '✓';
   position: absolute;
   left: 0;
   color: #10b981;
@@ -581,9 +600,9 @@ body {
 }
 
 .btn-disabled {
-  background: rgba(255, 255, 255, 0.05);
-  color: #6b7280;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px dashed rgba(148, 163, 184, 0.8);
   padding: 16px 32px;
   font-size: 16px;
   font-weight: 600;
@@ -592,6 +611,8 @@ body {
   font-family: inherit;
   width: 100%;
 }
+
+/* ================== DISCLAIMER / SOCIAL PROOF ======================= */
 
 .disclaimer-grid {
   display: grid;
@@ -610,7 +631,7 @@ body {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 24px;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .disclaimer-list {
@@ -619,7 +640,7 @@ body {
 
 .disclaimer-list li {
   font-size: 15px;
-  color: #9ca3af;
+  color: var(--text-muted);
   margin-bottom: 16px;
   padding-left: 24px;
   position: relative;
@@ -627,33 +648,38 @@ body {
 }
 
 .disclaimer-list li::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: 0;
-  color: #3b82f6;
+  color: var(--accent);
   font-weight: 700;
   font-size: 20px;
 }
 
+/* ================== FOOTER ======================= */
+
 .footer {
   padding: 60px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--card-border);
   text-align: center;
+  background: var(--bg-alt);
 }
 
 .footer-text {
   font-size: 16px;
-  color: #d1d5db;
+  color: var(--text-main);
   margin-bottom: 8px;
   font-weight: 500;
 }
 
 .footer-disclaimer {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
+
+/* ================== RESPONSIVE ======================= */
 
 @media (max-width: 1024px) {
   .hero-content {
@@ -783,8 +809,7 @@ body {
   }
 }
 
-
-
+/* ================== SCAN UPLOAD (NUEVO) ======================= */
 
 .section.scan-upload {
   padding-block: 4rem;
@@ -794,8 +819,8 @@ body {
   margin-top: 2rem;
   padding: 1.75rem 1.5rem;
   border-radius: 1rem;
-  background: #111827;
-  border: 1px solid #1f2937;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
 }
 
 .file-input-label {
@@ -803,11 +828,11 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: #e5e7eb;
+  color: var(--text-main);
   cursor: pointer;
 }
 
-.file-input-label input[type="file"] {
+.file-input-label input[type='file'] {
   margin-top: 0.25rem;
   font-size: 0.9rem;
 }
@@ -815,13 +840,13 @@ body {
 .scan-upload__status {
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: #93c5fd;
+  color: var(--accent);
 }
 
 .scan-upload__error {
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: #fca5a5;
+  color: #ef4444;
 }
 
 .scan-result {
@@ -854,15 +879,15 @@ body {
   gap: 1.5rem;
 }
 
-
+/* Card principal del upload usado en la landing */
 
 .scan-upload-card {
   margin-top: 24px;
   padding: 24px 24px 28px;
   border-radius: 16px;
-  background: radial-gradient(circle at top left, #020617, #020617f2);
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.75);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.5);
 }
 
 .scan-upload-label {
@@ -870,7 +895,7 @@ body {
   flex-direction: column;
   gap: 8px;
   font-size: 14px;
-  color: #e5e7eb;
+  color: var(--text-main);
 }
 
 .scan-upload-input {
@@ -879,8 +904,8 @@ body {
   max-width: 320px;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.6);
-  background: rgba(15, 23, 42, 0.9);
-  color: #f9fafb;
+  background: var(--bg-main);
+  color: var(--text-main);
   font-size: 13px;
 }
 
@@ -898,18 +923,18 @@ body {
 .scan-file-name {
   margin-top: 10px;
   font-size: 13px;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 .scan-file-name span {
-  color: #e5e7eb;
+  color: var(--text-main);
   font-weight: 500;
 }
 
 .scan-status {
   margin-top: 10px;
   font-size: 13px;
-  color: #e5e7eb;
+  color: var(--text-main);
 }
 
 .scan-error {
@@ -921,14 +946,14 @@ body {
 .scan-report {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid rgba(148, 163, 184, 0.4);
+  border-top: 1px solid var(--card-border);
 }
 
 .scan-report-title {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 12px;
-  color: #f9fafb;
+  color: var(--text-main);
 }
 
 .scan-report-grid {
@@ -944,20 +969,20 @@ body {
   min-width: 180px;
   padding: 10px 14px;
   border-radius: 999px;
-  background: radial-gradient(circle at top left, #1d283a, #020617);
-  border: 1px solid rgba(96, 165, 250, 0.4);
+  background: var(--card-bg);
+  border: 1px solid rgba(96, 165, 250, 0.6);
 }
 
 .scan-pill-label {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 .scan-pill-value {
   font-size: 13px;
-  color: #e5e7eb;
+  color: var(--text-main);
 }
 
 .scan-columns {
@@ -976,7 +1001,7 @@ body {
 .scan-subtitle {
   font-size: 14px;
   font-weight: 600;
-  color: #e5e7eb;
+  color: var(--text-main);
   margin-bottom: 8px;
 }
 
@@ -984,7 +1009,7 @@ body {
   list-style: disc;
   padding-left: 18px;
   font-size: 13px;
-  color: #d1d5db;
+  color: var(--text-main);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -993,7 +1018,7 @@ body {
 .scan-raw {
   margin-top: 18px;
   font-size: 12px;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 .scan-raw summary {
