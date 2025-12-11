@@ -614,3 +614,74 @@ body {
     padding: 24px;
   }
 }
+
+
+
+
+.section.scan-upload {
+  padding-block: 4rem;
+}
+
+.scan-upload__card {
+  margin-top: 2rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: 1rem;
+  background: #111827;
+  border: 1px solid #1f2937;
+}
+
+.file-input-label {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+.file-input-label input[type="file"] {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.scan-upload__status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #93c5fd;
+}
+
+.scan-upload__error {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #fca5a5;
+}
+
+.scan-result {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.scan-result__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.scan-result__grid h4 {
+  margin-bottom: 0.5rem;
+}
+
+.scan-result__grid ul,
+.scan-result__lists ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.25rem 0 0;
+}
+
+.scan-result__lists {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}

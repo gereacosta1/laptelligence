@@ -1,3 +1,4 @@
+// src/components/HowItWorks.tsx
 function HowItWorks() {
   return (
     <section id="how-it-works" className="section">
