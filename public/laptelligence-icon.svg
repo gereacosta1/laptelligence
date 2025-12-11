@@ -1,0 +1,40 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo -->
+  <defs>
+    <linearGradient id="grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6D28D9"></stop>
+      <stop offset="50%" stop-color="#4C1D95"></stop>
+      <stop offset="100%" stop-color="#111827"></stop>
+    </linearGradient>
+  </defs>
+
+  <rect x="32" y="32" width="448" height="448" rx="120" ry="120" fill="url(#grad-bg)"></rect>
+
+  <!-- Destello (inteligencia / escaneo) -->
+  <circle cx="360" cy="140" r="40" fill="#FBBF24" opacity="0.9"></circle>
+  <path d="M360 100 L370 125 L398 128 L376 145 L382 172 L360 158 L338 172 L344 145 L322 128 L350 125 Z" fill="#F59E0B" opacity="0.9"></path>
+
+  <!-- Letra L estilizada (Laptelligence / Laptop) -->
+  <path d="M176 120
+       C170 140 168 160 168 190
+       L168 340
+       C168 364 178 376 202 376
+       L312 376
+       C326 376 338 368 344 356
+       C350 344 350 332 346 320
+       L336 290
+       C332 276 320 268 306 268
+       L232 268
+       L232 190
+       C232 166 224 148 210 136
+       C200 128 188 124 176 120 Z" fill="white"></path>
+
+  <!-- Detalle interior (sensación de “scan”) -->
+  <path d="M232 312 L304 312
+       C311 312 316 316 318 322
+       L322 334
+       C325 343 320 352 310 352
+       L214 352
+       C205 352 200 347 200 338
+       C200 330 206 322 214 322 Z" fill="#C4B5FD" opacity="0.9"></path>
+</svg>
