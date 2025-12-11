@@ -296,6 +296,32 @@ body {
   line-height: 1.6;
 }
 
+.step-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(59, 130, 246, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+  color: #e5ecff;
+  text-decoration: none;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+.step-download:hover {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #020617;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

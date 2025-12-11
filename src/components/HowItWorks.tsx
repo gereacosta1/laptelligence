@@ -15,6 +15,7 @@ function HowItWorks() {
               Pagás de forma segura con tarjeta mediante Stripe. Tenés acceso inmediato a las instrucciones.
             </p>
           </div>
+
           <div className="step-card">
             <div className="step-number">2</div>
             <h3 className="step-title">Ejecutás el escaneo</h3>
@@ -22,7 +23,17 @@ function HowItWorks() {
               Descargás un asistente liviano que recopila datos básicos (rendimiento, procesos, espacio en disco, etc.).
               No accede a tus archivos personales.
             </p>
+
+            {/* Botón de descarga del asistente */}
+            <a
+              href="/laptelligence_scan.ps1"
+              download
+              className="step-download"
+            >
+              Descargar asistente para Windows
+            </a>
           </div>
+
           <div className="step-card">
             <div className="step-number">3</div>
             <h3 className="step-title">Recibís tu reporte inteligente</h3>
