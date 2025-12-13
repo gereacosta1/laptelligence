@@ -1,4 +1,3 @@
-// src/components/ScanUpload.tsx
 import { useMemo, useState, ChangeEvent } from "react";
 
 type AnyJson = any;

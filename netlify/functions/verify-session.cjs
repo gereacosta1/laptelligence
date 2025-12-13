@@ -30,7 +30,7 @@ exports.handler = async (event) => {
 
     const session = await stripe.checkout.sessions.retrieve(sessionId);
 
-    if (session.payment_status !== 'paid') {
+    if (session.payment_status !== 'paid' || session.mode !== 'payment') {
       return {
         statusCode: 402,
         headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },

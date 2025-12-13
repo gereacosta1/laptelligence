@@ -3,6 +3,23 @@
   publish = "dist"
   functions = "netlify/functions"
 
+# Excepciones: archivos estáticos que NO deben caer al SPA fallback
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+[[redirects]]
+  from = "/laptelligence-icon.svg"
+  to = "/laptelligence-icon.svg"
+  status = 200
+
+# SPA fallback al final
 [[redirects]]
   from = "/*"
   to = "/index.html"

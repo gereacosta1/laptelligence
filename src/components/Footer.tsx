@@ -1,3 +1,4 @@
+// src/components/Footer.tsx
 function Footer() {
   const currentYear = new Date().getFullYear();
 

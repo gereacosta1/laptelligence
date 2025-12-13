@@ -79,9 +79,9 @@ function App() {
   return (
     <div className="app">
       <Navbar />
-      <Hero />
+      <Hero isPaid={isPaid} />
       <WhySlowSection />
-      <HowItWorks isPaid={isPaid}/>
+      <HowItWorks isPaid={isPaid} />
 
       <ReportFeatures />
       <SocialProofSection />
