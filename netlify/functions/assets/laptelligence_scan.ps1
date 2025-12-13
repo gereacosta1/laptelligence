@@ -1,3 +1,4 @@
+
 # laptelligence_scan.ps1
 # Versión 1.0.0 - Escaneo básico de rendimiento para Laptelligence
 

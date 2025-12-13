@@ -1,5 +1,5 @@
 // src/components/ScanUpload.tsx
-import { useState, ChangeEvent } from "react";
+import { useMemo, useState, ChangeEvent } from "react";
 
 type AnyJson = any;
 
@@ -121,7 +121,6 @@ function buildReport(data: AnyJson): ScanReport {
     }
   }
 
-  // Si no encontramos nada específico, igual damos recomendaciones base
   if (issues.length === 0) {
     issues.push("No se detectaron problemas críticos con los datos disponibles.");
   }
@@ -143,7 +142,11 @@ function buildReport(data: AnyJson): ScanReport {
   };
 }
 
-function ScanUpload() {
+type ScanUploadProps = {
+  isPaid?: boolean; // opcional para que no rompa si te olvidás de pasarlo
+};
+
+function ScanUpload({ isPaid = false }: ScanUploadProps) {
   const [fileName, setFileName] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<ScanReport | null>(null);
@@ -154,9 +157,7 @@ function ScanUpload() {
     setError(null);
     setReport(null);
 
-    if (!file) {
-      return;
-    }
+    if (!file) return;
 
     setFileName(file.name);
 
@@ -195,14 +196,26 @@ function ScanUpload() {
     reader.readAsText(file);
   };
 
+  const { issuesToShow, recsToShow } = useMemo(() => {
+    if (!report) return { issuesToShow: [], recsToShow: [] };
+
+    // Preview limitado si no pagó
+    const limitedIssues = report.issues.slice(0, 1);
+    const limitedRecs = report.recommendations.slice(0, 1);
+
+    return {
+      issuesToShow: isPaid ? report.issues : limitedIssues,
+      recsToShow: isPaid ? report.recommendations : limitedRecs,
+    };
+  }, [report, isPaid]);
+
   return (
     <section id="scan-upload" className="section">
       <div className="container">
-        {/* <h2 className="section-title">Subí tu scan y generá el Reporte Inteligente</h2> */}
         <p className="section-subtitle">
           Ejecutá el asistente en tu laptop, y luego subí el archivo{" "}
-          <code>laptelligence_scan.json</code> que se genera en tu Escritorio. Analizamos
-          tus métricas básicas sin acceder a tus archivos personales.
+          <code>laptelligence_scan.json</code> que se genera en tu Escritorio.
+          Analizamos métricas básicas sin acceder a tus archivos personales.
         </p>
 
         <div className="scan-upload-card">
@@ -223,10 +236,34 @@ function ScanUpload() {
           )}
 
           {loading && (
-            <p className="scan-status">Analizando el archivo, esto puede tomar unos segundos…</p>
+            <p className="scan-status">
+              Analizando el archivo, esto puede tomar unos segundos…
+            </p>
           )}
 
           {error && <p className="scan-error">{error}</p>}
+
+          {report && !error && !isPaid && (
+            <div className="scan-upload-card" style={{ marginTop: 16 }}>
+              <h3 className="scan-report-title">Vista previa</h3>
+              <p className="section-subtitle" style={{ marginBottom: 0 }}>
+                Estás viendo un preview. Para desbloquear el reporte completo
+                (todas las recomendaciones y el detalle técnico), comprá el acceso.
+              </p>
+
+              <button
+                className="btn-primary"
+                onClick={() =>
+                  document
+                    .querySelector("section.section:last-of-type")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                style={{ marginTop: 12 }}
+              >
+                Desbloquear reporte completo
+              </button>
+            </div>
+          )}
 
           {report && !error && (
             <div className="scan-report">
@@ -265,26 +302,38 @@ function ScanUpload() {
                 <div>
                   <h4 className="scan-subtitle">Problemas detectados</h4>
                   <ul className="scan-list">
-                    {report.issues.map((issue, idx) => (
+                    {issuesToShow.map((issue, idx) => (
                       <li key={idx}>{issue}</li>
                     ))}
                   </ul>
+                  {!isPaid && report.issues.length > issuesToShow.length && (
+                    <p className="hero-note" style={{ marginTop: 8 }}>
+                      Desbloqueá el acceso para ver el resto de problemas detectados.
+                    </p>
+                  )}
                 </div>
 
                 <div>
                   <h4 className="scan-subtitle">Recomendaciones</h4>
                   <ul className="scan-list">
-                    {report.recommendations.map((rec, idx) => (
+                    {recsToShow.map((rec, idx) => (
                       <li key={idx}>{rec}</li>
                     ))}
                   </ul>
+                  {!isPaid && report.recommendations.length > recsToShow.length && (
+                    <p className="hero-note" style={{ marginTop: 8 }}>
+                      Desbloqueá el acceso para ver el plan completo paso a paso.
+                    </p>
+                  )}
                 </div>
               </div>
 
-              <details className="scan-raw">
-                <summary>Ver datos técnicos del scan (opcional)</summary>
-                <pre>{JSON.stringify(report.raw, null, 2)}</pre>
-              </details>
+              {isPaid && (
+                <details className="scan-raw">
+                  <summary>Ver datos técnicos del scan (opcional)</summary>
+                  <pre>{JSON.stringify(report.raw, null, 2)}</pre>
+                </details>
+              )}
             </div>
           )}
         </div>
